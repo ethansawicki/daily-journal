@@ -1,0 +1,14 @@
+.entryForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.entryForm--Field {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.entryForm--Mood-Select {
+    width: 90px;
+}
