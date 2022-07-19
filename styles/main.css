@@ -1,3 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: black;
+    color: aqua;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
 .entryForm {
     display: flex;
     flex-direction: column;
@@ -11,4 +30,10 @@
 
 .entryForm--Mood-Select {
     width: 90px;
+}
+
+.recordEntry--Button {
+    width: 150px;
+    margin: 10px;
+    align-self: center;
 }
