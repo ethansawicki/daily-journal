@@ -50,8 +50,12 @@ const journalEntries = [
     }
 ]
 
+for (const entry of journalEntries) {
+    console.log(entry.entry)
+}
+
 for (const entries of journalEntries) {
-    console.log(entries.entry)
+    console.log(entries)
 }
 
 for (const entries of journalEntries) {
@@ -60,6 +64,6 @@ for (const entries of journalEntries) {
 
 for (const entries of journalEntries) {
     if (entries.id % 2 !== 0) {
-        console.log(entries.id)
+        console.log(`${entries.id} is the odd ID number`)
     }
 }
