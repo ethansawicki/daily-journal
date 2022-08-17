@@ -18,24 +18,34 @@
           <input type="date" name="entryDate" class="entryForm--DateSelector" />
         </fieldset>
         <fieldset class="entryForm--Field">
-            <label for="conceptsCovered">Concepts Covered</label>
-            <input type="text" name="conceptsCovered" class="entryForm--Concepts-Text"/>
+          <label for="conceptsCovered">Concepts Covered</label>
+          <input
+            type="text"
+            name="conceptsCovered"
+            class="entryForm--Concepts-Text"
+          />
         </fieldset>
         <fieldset class="entryForm--Field">
-            <label for="journalEntry">Journal Entry</label>
-            <textarea class="entryForm--Journal-Text" name="journalEntry" placeholder="Enter Text Here.."></textarea>
+          <label for="journalEntry">Journal Entry</label>
+          <textarea
+            class="entryForm--Journal-Text"
+            name="journalEntry"
+            placeholder="Enter Text Here.."
+          ></textarea>
         </fieldset>
         <fieldset class="entryForm--Field">
-            <label for="mood">Mood</label>
-            <select name="mood" class="entryForm--Mood-Select">
-                <option value="happy">Happy</option>
-                <option value="sadge">Sadge</option>
-                <option value="indifferent">Indifferent</option>
-            </select>
+          <label for="mood">Mood</label>
+          <select name="mood" class="entryForm--Mood-Select">
+            <option value="happy">Happy</option>
+            <option value="sadge">Sadge</option>
+            <option value="indifferent">Indifferent</option>
+          </select>
         </fieldset>
         <button class="recordEntry--Button">Record Journal Entry</button>
       </form>
-      <article id="entries"></article>
+      <fieldset class="entryForm--Field">
+        <article id="entries"></article>
+      </fieldset>
     </main>
     <footer></footer>
     <script type="module" src="./scripts/main.js"></script>
