@@ -39,3 +39,6 @@ header {
     align-self: center;
 }
 
+.list--item {
+    color: white;
+}
