@@ -30,7 +30,10 @@ header {
 }
 
 .entryForm--Mood-Select {
-    width: 90px;
+    display: flex;
+    width: 100px;
+    align-self: center;
+    margin-top: 10px;
 }
 
 .recordEntry--Button {
@@ -41,4 +44,12 @@ header {
 
 .list--item {
     color: white;
+}
+
+.section-title {
+    text-align: center;
+}
+
+.entry-title {
+    text-align: center;
 }
