@@ -1,18 +1,30 @@
-import { exportJournal } from "./database.js";
+import { renderEntries } from "./journal-entries.js"
+import { entryDate } from "./entry-date.js"
+import { conceptsCovered } from "./concepts.js"
+import { entryForm } from "./entryform.js"
+import { moodSelector } from "./mood.js"
 
-const renderEntries = () => {
-    const entries = exportJournal()
-    let renderEntries = `<section>`
-    for (const entry of entries) {
-        renderEntries += `<h3><u>${entry.concept}</u></h3>`
-        renderEntries += `<ul>`
-        renderEntries += `<li class="list--item"><u>Date</u>: ${entry.date}</li>`
-        renderEntries += `<li class="list--item"><u>Entry</u>: ${entry.entry}</li>`
-        renderEntries += `<li class="list--item"><u>Mood</u>: ${entry.mood}</li>`
-        renderEntries += `</ul>`
-        renderEntries += `</section>`
-    }
-    return document.querySelector("#entries").innerHTML = renderEntries
+const renderJournalEntryForm = () => {
+    const formRender = document.querySelector('.entryForm')
+    let renderHTML = `<fieldset class="entryForm--Field">`
+    renderHTML += entryDate()
+    renderHTML += `</fieldset>`
+    renderHTML += `<fieldset class="entryForm--Field">`
+    renderHTML += conceptsCovered()
+    renderHTML += `</fieldset>`
+    renderHTML += `<fieldset class="entryForm--Field">`
+    renderHTML += entryForm()
+    renderHTML += `</fieldset>`
+    renderHTML += `<fieldset class="entryForm--Field">`
+    renderHTML += moodSelector()
+    renderHTML += `</fieldset>`
+    renderHTML += `<button class="recordEntry--Button">Record Journal Entry</button>`
+    return formRender.innerHTML = renderHTML
 }
 
-renderEntries()
+const renderAll = () => {
+    renderJournalEntryForm()
+    renderEntries()
+}
+
+renderAll()
