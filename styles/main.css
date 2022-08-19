@@ -23,6 +23,24 @@ header {
     flex-direction: column;
 }
 
+.entryForm--Concepts-Text{
+    width: 400px;
+    height: 20px;
+    outline: 0px solid transparent;
+    color: black;
+    background-color: white;
+    border: 1px white;
+}
+
+.entryForm--Journal-Text{
+    width: 400px;
+    height: 200px;
+    outline: 0px solid transparent;
+    color: black;
+    background-color: white;
+    border: 1px white;
+}
+
 .entryForm--Field {
     display: flex;
     flex-direction: column;
@@ -33,7 +51,6 @@ header {
     display: flex;
     width: 100px;
     align-self: center;
-    margin-top: 10px;
 }
 
 .recordEntry--Button {
@@ -48,6 +65,7 @@ header {
 
 .section-title {
     text-align: center;
+    margin: 10px
 }
 
 .entry-title {
