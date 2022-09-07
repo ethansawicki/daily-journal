@@ -1,8 +1,8 @@
-import { exportJournal } from "./database.js";
+import { exportJournalEntries } from "./database.js";
 
 export const renderEntries = () => {
     const appElement = document.querySelector('.entries')
-    const entries = exportJournal()
+    const entries = exportJournalEntries()
     let renderEntries = `<fieldset class="entryForm--Field">`
     for (const entry of entries) {
         renderEntries += `<h3 class="entry-title"><u>${entry.concept}</u></h3>`

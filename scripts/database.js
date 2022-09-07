@@ -12,45 +12,23 @@ const journalEntries = [
         concept: "New Groups",
         entry: "We got new groups this past Saturday (07/30/2022)",
         mood: "Sadge"
-    },
-    {
-        id: 3,
-        date: "08/01/2022",
-        concept: "Test 3",
-        entry: "Blank",
-        mood: "Happy"
-    },
-    {
-        id: 4,
-        date: "08/01/2022",
-        concept: "Test 4",
-        entry: "Blank",
-        mood: "Alive"
-    },
-    {
-        id: 5,
-        date: "08/01/2022",
-        concept: "Test 5",
-        entry: "Blank",
-        mood: "Alive"
-    },
-    {
-        id: 6,
-        date: "08/01/2022",
-        concept: "Test 6",
-        entry: "Blank",
-        mood: "Alive"
-    },
-    {
-        id: 7,
-        date: "08/01/2022",
-        concept: "Test 7",
-        entry: "Blank",
-        mood: "Alive"
     }
 ]
 
-export const exportJournal = () => {
+export const exportJournalEntries = () => {
     const journalCopy = journalEntries.map(journal => {return{...journal}})
     return journalCopy
+}
+
+const getNewJournalId = () => {
+    const order = exportJournalEntries()
+    let highestOrderId = order.sort((a, b) => b.id - a.id)[0].id
+    return highestOrderId + 1
+}
+
+export const addNewEntry = (newEntry) => {
+    const newId = getNewJournalId()
+    newEntry.id = newId
+    journalEntries.push(newEntry)
+    document.dispatchEvent(new CustomEvent("stateChanged"))   
 }

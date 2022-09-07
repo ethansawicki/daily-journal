@@ -3,6 +3,7 @@ import { entryDate } from "./entry-date.js"
 import { conceptsCovered } from "./concepts.js"
 import { entryForm } from "./entryform.js"
 import { moodSelector } from "./mood.js"
+import { addNewEntry } from "./database.js"
 
 const renderJournalEntryForm = () => {
     const formRender = document.querySelector('.entryForm')
@@ -28,3 +29,27 @@ const renderAll = () => {
 }
 
 renderAll()
+
+document.addEventListener(
+    "click",
+    (event) => {
+        if(event.target.classList.contains('recordEntry--Button')) {
+            event.preventDefault()// why do we need this? and why is it refreshing page and scrolling to top?
+            const entryDate = document.querySelector('input[type=date]')?.value
+            const entryConcepts = document.querySelector('.entryForm--Concepts-Text').innerText
+            const entryForm = document.querySelector(".entryForm--Journal-Text").innerText
+            const entryMood = document.querySelector('.entryForm--Mood-Select')?.value
+            const newEntry = {
+                date: entryDate,
+                concept: entryConcepts,
+                entry: entryForm,
+                mood: entryMood
+            }
+            addNewEntry(newEntry)
+        }
+    }
+)
+
+document.addEventListener('stateChanged', event => {
+    renderAll()
+})
