@@ -1,34 +1,30 @@
-const journalEntries = [
-    {
-        id: 1,
-        date: "08/01/2022",
-        concept: "Leonids Toys",
-        entry: "Completed Leonids Toys on this past Saturday (07/30/2022)",
-        mood: "Alive"
-    },
-    {
-        id: 2,
-        date: "08/01/2022",
-        concept: "New Groups",
-        entry: "We got new groups this past Saturday (07/30/2022)",
-        mood: "Sadge"
+const journalEntries = {
+    entries: []
+}
+
+const API = "http://localhost:8088"
+
+export const fetchEntries = async () => {
+    const data = await fetch(`${API}/entries`)
+    const jsonData = await data.json()
+    journalEntries.entries = jsonData 
+}
+
+export const postEntries = async (data) => {
+    const post = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
     }
-]
+    const mainContainer = document.querySelector('.entries')
+    const response = await fetch(`${API}/entries`, post)
+    const responseJSON = await response.json()
+    mainContainer.dispatchEvent(new CustomEvent('stateChanged'))
+    return responseJSON
+}
 
 export const exportJournalEntries = () => {
-    const journalCopy = journalEntries.map(journal => {return{...journal}})
-    return journalCopy
-}
-
-const getNewJournalId = () => {
-    const order = exportJournalEntries()
-    let highestOrderId = order.sort((a, b) => b.id - a.id)[0].id
-    return highestOrderId + 1
-}
-
-export const addNewEntry = (newEntry) => {
-    const newId = getNewJournalId()
-    newEntry.id = newId
-    journalEntries.push(newEntry)
-    document.dispatchEvent(new CustomEvent("stateChanged"))   
+   return journalEntries.entries.map(journal => ({...journal}))
 }

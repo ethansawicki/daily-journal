@@ -47,6 +47,13 @@ header {
     width: 400px;
 }
 
+.entryForm--Field--Button {
+    display: flex;
+    border: 0;
+    flex-direction: column;
+    width: 400px;
+}
+
 .entryForm--Mood-Select {
     display: flex;
     width: 100px;
