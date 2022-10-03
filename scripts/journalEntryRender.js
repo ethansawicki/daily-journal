@@ -11,11 +11,11 @@ const mainContainer = document.querySelector('.entries')
 mainContainer.addEventListener(
     "click",
     (event) => {
+        const entryDate = document.querySelector('input[type="date"]')?.value
+        const entryConcepts = document.querySelector('.entryForm--Concepts-Text').innerText
+        const entryForm = document.querySelector(".entryForm--Journal-Text").innerText
+        const entryMood = document.querySelector('.entryForm--Mood-Select')?.value
         if(event.target.classList.contains('recordEntry--Button')) {
-            const entryDate = document.querySelector('input[type="date"]')?.value
-            const entryConcepts = document.querySelector('.entryForm--Concepts-Text').innerText
-            const entryForm = document.querySelector(".entryForm--Journal-Text").innerText
-            const entryMood = document.querySelector('.entryForm--Mood-Select')?.value
             const newEntry = {
                 date: entryDate,
                 concept: entryConcepts,
@@ -24,11 +24,8 @@ mainContainer.addEventListener(
             }
             postEntries(newEntry)
         } else if (event.target.classList.contains('editEntry--Button')) {
-            const id = document.querySelector('.entryForm--Id').innerText
-            const entryDate = document.querySelector('input[type="date"]')?.value
-            const entryConcepts = document.querySelector('.entryForm--Concepts-Text').innerText
-            const entryForm = document.querySelector(".entryForm--Journal-Text").innerText
-            const entryMood = document.querySelector('.entryForm--Mood-Select')?.value
+            const storedID = window.localStorage.getItem("postID")
+            const id = JSON.parse(storedID)
             const editEntry = {
                 date: entryDate,
                 concept: entryConcepts,
@@ -39,7 +36,7 @@ mainContainer.addEventListener(
             window.localStorage.clear()
         }
     }
-    )
+)
     
     
 mainContainer.addEventListener("click", clickEvent => {
@@ -95,9 +92,6 @@ export const renderJournalEntryForm = () => {
 
 export const renderEditForm = () => {
     let renderHTML = ''
-    renderHTML += `<fieldset class="entryForm--Field">`
-    renderHTML += `<div name="conceptsCovered" class="entryForm--Id" contenteditable="true"></div>`
-    renderHTML += `</fieldset>`
     renderHTML += `<fieldset class="entryForm--Field">`
     renderHTML += entryDate()
     renderHTML += `</fieldset>`
