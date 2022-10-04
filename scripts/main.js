@@ -1,4 +1,4 @@
-import { fetchEntries } from "./database.js"
+import { fetchEntries } from "./dataAccess.js"
 import { runOnEventClick } from "./edit-entry.js"
 import { renderEditForm, renderJournalEntryForm} from "./journalEntryRender.js"
 

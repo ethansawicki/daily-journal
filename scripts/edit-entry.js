@@ -1,4 +1,4 @@
-import { findEntriesConcept, findEntriesEntry, findEntriesMood, findEntriesDate } from "./database.js"
+import { findEntriesConcept, findEntriesEntry, findEntriesMood, findEntriesDate } from "./dataAccess.js"
 
 export const runOnEventClick = () => {
     const storedID = window.localStorage.getItem("postID")

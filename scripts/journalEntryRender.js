@@ -3,8 +3,7 @@ import { conceptsCovered } from "./concepts.js"
 import { entryForm } from "./entryform.js"
 import { moodSelector } from "./mood.js"
 import { renderEntries } from "./journal-entries.js"
-import { postEntries,deleteSelectedEntry, modifyEntry } from "./database.js"
-import { runOnEventClick } from "./edit-entry.js"
+import { postEntries,deleteSelectedEntry, modifyEntry } from "./dataAccess.js"
 
 const mainContainer = document.querySelector('.entries')
 

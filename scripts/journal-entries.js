@@ -1,4 +1,4 @@
-import { exportJournalEntries } from "./database.js";
+import { exportJournalEntries } from "./dataAccess.js";
 
 const listEntries = (entry) => {
     let html = ""
