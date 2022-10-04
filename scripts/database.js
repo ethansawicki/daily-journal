@@ -4,6 +4,8 @@ const journalEntries = {
 
 const API = "http://localhost:8088"
 
+
+
 export const fetchEntries = async () => {
     const data = await fetch(`${API}/entries`)
     const jsonData = await data.json()
@@ -50,34 +52,36 @@ export const exportJournalEntries = () => {
    return journalEntries.entries.map(journal => ({...journal}))
 }
 
-export const findEntriesDate = (entry) => {
+export const findEntriesDate = (entryId) => {
     for(const entries of journalEntries.entries) {
-        if(entries.id === parseInt(entry)) {
-            return entries.date
+        if(entries.id === parseInt(entryId)) {
+            return document.querySelector('input[type="date"]').value = entries.date
         }
     }
 }
 
-export const findEntriesConcept = (entry) => {
+export const findEntriesConcept = (entryId) => {
+    const mainContainer = document.querySelector('.entries')
     for(const entries of journalEntries.entries) {
-        if(entries.id === parseInt(entry)) {
-            return entries.concept
+        if(entries.id === parseInt(entryId)) {
+            return document.querySelector('.entryForm--Concepts-Text').innerText = entries.concept
         }
     }
 }
 
-export const findEntriesEntry = (entry) => {
+export const findEntriesEntry = (entryId) => {
+    const mainContainer = document.querySelector('.entries')
     for(const entries of journalEntries.entries) {
-        if(entries.id === parseInt(entry)) {
-            return entries.entry
+        if(entries.id === parseInt(entryId)) {
+            return document.querySelector('.entryForm--Journal-Text').innerText = entries.entry
         }
     }
 }
 
-export const findEntriesMood = (entry) => {
+export const findEntriesMood = (entryId) => {
     for(const entries of journalEntries.entries) {
-        if(entries.id === parseInt(entry)) {
-            return entries.mood
+        if(entries.id === parseInt(entryId)) {
+            return document.querySelector('.entryForm--Mood-Select').value = entries.mood
         }
     }
 }

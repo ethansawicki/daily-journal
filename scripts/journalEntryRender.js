@@ -51,7 +51,7 @@ mainContainer.addEventListener(
     (event) => {
         if(event.target.id.startsWith("edit--")) {
             const [,entryId] = event.target.id.split("--")
-            runOnEventClick(entryId)
+            window.localStorage.setItem("postID", JSON.stringify(entryId))
             mainContainer.dispatchEvent(new CustomEvent('renderEdit'))
         } 
     }

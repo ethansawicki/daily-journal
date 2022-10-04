@@ -1,5 +1,5 @@
 import { fetchEntries } from "./database.js"
-import { parseLocalStorage } from "./edit-entry.js"
+import { runOnEventClick } from "./edit-entry.js"
 import { renderEditForm, renderJournalEntryForm} from "./journalEntryRender.js"
 
 const mainContainer = document.querySelector('.entries')
@@ -18,7 +18,7 @@ mainContainer.addEventListener('stateChanged', event => {
 const renderEdit = async () => {
     await fetchEntries()
     mainContainer.innerHTML = renderEditForm()
-    parseLocalStorage()
+    runOnEventClick()
 }
 
 mainContainer.addEventListener('renderEdit', event => {
