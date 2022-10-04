@@ -2,17 +2,15 @@ const journalEntries = {
     entries: []
 }
 
-const API = "http://localhost:8088"
-
-
-
 export const fetchEntries = async () => {
+    const API = "http://localhost:8088"
     const data = await fetch(`${API}/entries`)
     const jsonData = await data.json()
     journalEntries.entries = jsonData 
 }
 
 export const postEntries = async (data) => {
+    const API = "http://localhost:8088"
     const post = {
         method: "POST",
         headers: {
@@ -28,6 +26,7 @@ export const postEntries = async (data) => {
 }
 
 export const modifyEntry = async (data, id) => {
+    const API = "http://localhost:8088"
     const modify = {
         method: "PUT",
         headers: {
@@ -43,6 +42,7 @@ export const modifyEntry = async (data, id) => {
 }
 
 export const deleteSelectedEntry = async (id) => {
+    const API = "http://localhost:8088"
     await fetch(`${API}/entries/${id}`, {method: "DELETE"})
     const mainContainer = document.querySelector('.entries')
     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
@@ -61,7 +61,6 @@ export const findEntriesDate = (entryId) => {
 }
 
 export const findEntriesConcept = (entryId) => {
-    const mainContainer = document.querySelector('.entries')
     for(const entries of journalEntries.entries) {
         if(entries.id === parseInt(entryId)) {
             return document.querySelector('.entryForm--Concepts-Text').innerText = entries.concept
@@ -70,7 +69,6 @@ export const findEntriesConcept = (entryId) => {
 }
 
 export const findEntriesEntry = (entryId) => {
-    const mainContainer = document.querySelector('.entries')
     for(const entries of journalEntries.entries) {
         if(entries.id === parseInt(entryId)) {
             return document.querySelector('.entryForm--Journal-Text').innerText = entries.entry
