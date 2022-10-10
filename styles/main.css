@@ -86,3 +86,7 @@ header {
 .entryForm--Id {
     display: none;
 }
+
+#entry-Concept {
+    text-align: center;
+}

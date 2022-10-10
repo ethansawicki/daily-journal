@@ -1,27 +1,35 @@
 import { fetchEntries } from "./dataAccess.js"
 import { runOnEventClick } from "./edit-entry.js"
-import { renderEditForm, renderJournalEntryForm} from "./journalEntryRender.js"
+import { showEntryForm, journalEntries, submitNewButton, submitEditButton} from "./journalEntryRender.js"
 
-const mainContainer = document.querySelector('.entries')
+const entryContainer = document.querySelector('.entries')
+const journalContainer = document.querySelector(".journal-Entries")
+let buttonContainer = document.querySelector(".entry-button")
 
-const renderAll = async () => {
-    await fetchEntries()
-    mainContainer.innerHTML = renderJournalEntryForm()
+const renderEntryForm = () => {
+    entryContainer.innerHTML = showEntryForm()
 }
 
-renderAll()
-
-mainContainer.addEventListener('stateChanged', event => {
-    renderAll()
-})
-
-const renderEdit = async () => {
+const renderJournalEntries = async () => {
     await fetchEntries()
-    mainContainer.innerHTML = renderEditForm()
-    runOnEventClick()
+    journalContainer.innerHTML = journalEntries()
 }
 
-mainContainer.addEventListener('renderEdit', event => {
-    renderEdit()
-    window.scrollTo(0,0)
+const renderButton = () => {
+    buttonContainer.innerHTML = submitNewButton()
+}
+
+renderJournalEntries()
+renderEntryForm()
+renderButton()
+
+journalContainer.addEventListener('stateChanged', event => {
+    renderJournalEntries()
 })
+
+// entryContainer.addEventListener('renderEdit', event => {
+//     runOnEventClick()
+//     buttonContainer = document.querySelector(".entry-button")
+//     buttonContainer.innerHTML = submitEditButton()
+//     window.scrollTo(0,0)
+// })

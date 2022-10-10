@@ -18,10 +18,10 @@ export const postEntries = async (data) => {
         },
         body: JSON.stringify(data)
     }
-    const mainContainer = document.querySelector('.entries')
+    const journalContainer = document.querySelector('.journal-Entries')
     const response = await fetch(`${API}/entries`, post)
     const responseJSON = await response.json()
-    mainContainer.dispatchEvent(new CustomEvent('stateChanged'))
+    journalContainer.dispatchEvent(new CustomEvent('stateChanged'))
     return responseJSON
 }
 
@@ -34,7 +34,7 @@ export const modifyEntry = async (data, id) => {
         },
         body: JSON.stringify(data)
     }
-    const mainContainer = document.querySelector('.entries')
+    const mainContainer = document.querySelector('.journal-Entries')
     const response = await fetch(`${API}/entries/${id}`, modify)
     const responseJSON = await response.json()
     mainContainer.dispatchEvent(new CustomEvent('stateChanged'))
@@ -44,7 +44,7 @@ export const modifyEntry = async (data, id) => {
 export const deleteSelectedEntry = async (id) => {
     const API = "http://localhost:8088"
     await fetch(`${API}/entries/${id}`, {method: "DELETE"})
-    const mainContainer = document.querySelector('.entries')
+    const mainContainer = document.querySelector('.journal-entries')
     mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
