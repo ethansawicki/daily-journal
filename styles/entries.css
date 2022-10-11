@@ -1,0 +1,33 @@
+#entry-Concept {
+    align-self: center;
+    gap: 10px;
+}
+
+.entryForm--Field-Entries {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.journal-Entries {
+    display: flex;
+    max-width: 1080px;
+    flex-flow: row wrap;
+    align-content: center;
+}
+
+.journal-entries-list {
+    margin: 20px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.entry-list {
+    display: flex;
+    flex-flow: column;
+    max-width: 200px;
+    align-self: flex-end;
+}
+
+.edit_Button, .delete_Button {
+    align-self:flex-end;
+}

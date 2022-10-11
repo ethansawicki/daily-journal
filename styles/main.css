@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-
+@import url(./entries.css);
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: black;
@@ -24,6 +24,8 @@ header {
 }
 
 .entryForm--Concepts-Text{
+    margin-left: auto;
+    margin-right: auto;
     width: 400px;
     height: 20px;
     outline: 0px solid transparent;
@@ -33,6 +35,8 @@ header {
 }
 
 .entryForm--Journal-Text{
+    margin-left: auto;
+    margin-right: auto;
     width: 400px;
     height: 200px;
     outline: 0px solid transparent;
@@ -41,18 +45,28 @@ header {
     border: 1px white;
 }
 
+.entryForm--DateSelector {
+    width: 115px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .entryForm--Field {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 432px;
+}
+
+.entry-button {
+    display: flex;
+    justify-content: center;
+    width: 464px;
 }
 
 .entryForm--Field--Button {
-    display: flex;
     border: 0;
-    flex-direction: column;
-    width: 400px;
 }
+
 
 .entryForm--Mood-Select {
     display: flex;
@@ -62,7 +76,6 @@ header {
 
 .recordEntry--Button {
     margin: 10px;
-    align-self: center;
 }
 
 .editEntry--Button {
@@ -87,6 +100,3 @@ header {
     display: none;
 }
 
-#entry-Concept {
-    text-align: center;
-}
