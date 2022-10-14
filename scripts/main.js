@@ -10,7 +10,6 @@ let buttonContainer = document.querySelector(".entry-button")
 buttonContainer.addEventListener(
     "click",
     (event) => {
-        event.preventDefault()
         const entryDate = document.querySelector('input[type="date"]')?.value
         const entryConcepts = document.querySelector('input[type="text"]')?.value
         const entryForm = document.querySelector(".entryForm--Journal-Text")?.value
@@ -23,13 +22,13 @@ buttonContainer.addEventListener(
                 entry.mood = entryMood
             postEntries(entry)
         } else if (event.target.id.startsWith('editEntry--')) {
-                const id = Object.getOwnPropertyDescriptor(journalEntriesState.editEntry, "id")
+                const id = journalEntriesState.editEntry.map(entryId => {return entryId.id})
                 entry.date = entryDate,
                 entry.concept = entryConcepts,
                 entry.entry = entryForm,
                 entry.mood = entryMood
                 console.log(id)
-            modifyEntry(entry, parseInt(id.value))
+            modifyEntry(entry, parseInt(id))
         }
     }
 )

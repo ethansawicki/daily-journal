@@ -14,7 +14,8 @@ export const fetchEntryEdit = async (id) => {
     const API = "http://localhost:8088/entries"
     const data = await fetch(`${API}/${id}`)
     const jsonData = await data.json()
-    journalEntriesState.editEntry = jsonData
+    journalEntriesState.editEntry.push(jsonData)
+    console.log(journalEntriesState.editEntry)
 }
 
 export const postEntries = async (data) => {
